@@ -254,10 +254,6 @@ li{
         .about_me{
           padding-top: 0rem;
         }
-        .main_text{
-        width : 90%;
-        margin-left : auto;
-        margin-right : auto;}
       }
       @media screen and (max-width : 600px ){
         .nav_content{
@@ -291,9 +287,9 @@ li{
         <div class="content">
           <h1 class="about_me_title">Hi There, I'm Sina</h1>
           <p class="main_text">I'm a Programmer in Fields of Web & Android and ios Applications and Many Other Things</p>
-          <p class="main_text">and i Love to Work In Cyber Security Field</p>
+          <p class="main_text">and i Love to Work In Cyber Security field</p>
           <p class="main_text">Also, I'm a little bit of Graphic Designer for Motion and Photos</p>
-          <p class="main_text">I will Take My Bachelor Degree in Electrical Engineering at Amirkabir University of Technology (AUT) in Iran in July 2022</p>
+          <p class="main_text">I will obtain my Bachelor degree in Electrical Engineering at Amirkabir University of Technology (AUT) in Iran in July 2022</p>
         </div>
         <img src="Photo/Sina.webp" alt="Sina Heidari" class="main_photo" />
       </div>
@@ -321,7 +317,9 @@ li{
         </div>
           <div class="section PS">
             <ul id="proj"></ul>
-            <h3 class="st">And Also I Studied a lot of CE and CS Courses Like A.I , DataBaces , Algorithm , Data Structure , cyber security and ...</h3>
+            <h4 class="h4">Toy Projects</h4>
+            <ul id="toyproj"></ul>
+            <h3 class="st">And Also I studied a lot of CE and CS Courses Like A.I , DataBaces , Algorithm , Data Structure , Cyber Security and ...</h3>
           </div>
       </div>
     </div>
@@ -399,20 +397,18 @@ li{
           {title: "Audition",url: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Adobe_Audition_CC_icon_%282020%29.svg",},
         ],
         pro:[
-            {title:"Design Electrical Circuit", text:"Designing Electrical Circuit for Specific Gain, Swing of Voltage, Frequency Responce, Input Impedance and Output Impedance and Needs Hspice and ADS(Advance Design Manager) as Programs"},
-            {title:"VLSI Projects", text:"Designing 4-Bit Fulladder with Propagate Path, Asynchronous Registers and RTL Circuit with 180nm Technology and Lowest Delay Time and Needs Micromind as Program"},
-            {title:"VHDL Projects", text:"Projects Like Fulladder, Arithmetic Logic Unit(ALU), Counter, BCD Transformer, Traffic Lights and ... and for This Project Needs VHDL and Verilog as Language and ISE as Program"},
-            {title:"Am & Fm Modulations", text:"Designing a Full Pack of Amplitude and Frequency modulation for Radio Signals and Filters of Modulations With Matlab"},
-            {title:"Ai with STM" , text:"It's About Using Artificial Intelligence of STM and Give Data To Our Microprocessor With Usart Post and Need To Write an Algorithm for A.I and This Project Needs C and Python as Language and CubeMX and Keil UVisoin as UPrograms"},
-            {title:"Smart Farming", text:"Design a Complete Pack for Have Smart Farm Sending and Receive Data From Website and Give it to Paspberry pi and to Our Microprocessor and we can see Data in Mathlab Have Reverse Path from Matlab to Website and i Program Frontend and Backend of Website and Help to Program Our Proccessor and for This Projects i Use HTML, Css, Js, jQuarry, Python, C"},
-            {title:"Web Games", text:"Games Like Maze, Shootout, Breakout and Ping Pong, This Games Made with Java Scripts and Canvas of HTML "},
-            {title:"Weather Site", text:"This Site Have Front-end and APIs and You can See and Search Cities and This Site Gives You The Weather Forcast Of 5 Days and In this Site Use 2 API one of them is Getting The Weather Forcast and the Other One is Searching The City and Used HTML, CSS, JS for Programming This Site"},
-            {title:"Black Board Site", text:"a Site That is a online Black Board and You can change The Thickness and Color of the Pen and in The End You can Save What You Draw on the Board an Used HTML, CSS, JS for Programming This Site"},
-            {title:"Supermarket Site", text:"in This Site Used React For Building The User Interface and Frontend of The Site and You Have Ability of Login Or Logout or Insert in Products or Edit Them"},
-            {title:"Market DataBase", text:"Using PostgreSQL For Coding The Data Bace and Have 5 Tables and All ids Of the Tables Have a Relationship To Eechothers"},
-            {title:"PC's Games", text:"Using Unity and Unreal Engine 4 for Gaming Engine and Build Terminal Hacker That Is the Guess The Word game and Rocket Games That is The Sending a Space Ship to The Specific Location Without Hitting any Objects"},
-            {title:"Money Count App", text:"An App That Cont How Much Money You Spend in one Week and Show Them in The Bar Char and Designed with Dart & Flutter"}
+            {title:"Ai with STM" , text:"using Artificial Intelligence of STM to process the incoming data (image) and give us the result"},
+            {title:"Smart Farming", text:"design a complete pack for have a smart farm, sending and receive data from website and send it to Raspberry pi as a server and Microprocessor to process it. we can use the reverse path from Matlab to website to made a threshold for our resources"},
           ],
+          toyp:[
+            {title:"Simple Websites", text:"making simple and toy websites like weather forecast Website ,supermarket website , blackboard website , games like Maze, Shootout and...."},
+            {title:"Phone App", text:" money counter app , food recipes app and historical places information app"},
+            {title:"PC's Games", text:"guessing word game and the Spaceship game"},
+            {title:"Simple DataBases", text:"using PostgreSQL for making supermarket's databace and social media's databace"},
+            {title:"Design Electrical Circuit", text:"desined a +100db gained circuit"},
+            {title:"VHDL Projects", text:"projects like Fulladder, Arithmetic Logic Unit(ALU), BCD transformer, Traffic Lights"},
+            {title:"VLSI Projects", text:"designing 4-Bit fulladder with Propagate Path, Asynchronous Registers and RTL Circuit with 180nm Technology"},
+          ]
       };
   function makecard(bace, prob) {
     var div = document.createElement("div");
@@ -469,15 +465,17 @@ li{
     li.appendChild(p);
     prob.appendChild(li);
   }
-    data.pro.map((e) => textReplace(document.querySelector("#proj"), e));
-    pl = document.querySelector("#PL");
-    data.pl.map((e) => makecard(pl, e));
-    Scrollbar(pl);
-    jl = document.querySelector("#JL");
-    data.jl.map((e) => makecard(jl, e));
-    Scrollbar(jl);
-    ap = document.querySelector("#AP");
-    data.ap.map((e) => makecard(ap, e));
-    Scrollbar(ap);
+
+  data.pro.map((e) => textReplace(document.querySelector("#proj"), e));
+  data.toyp.map((e) => textReplace(document.querySelector("#toyproj"), e))
+  pl = document.querySelector("#PL");
+  data.pl.map((e) => makecard(pl, e));
+  Scrollbar(pl);
+  jl = document.querySelector("#JL");
+  data.jl.map((e) => makecard(jl, e));
+  Scrollbar(jl);
+  ap = document.querySelector("#AP");
+  data.ap.map((e) => makecard(ap, e));
+  Scrollbar(ap);
   </script>
 </html>
